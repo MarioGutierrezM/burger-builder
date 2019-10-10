@@ -1,0 +1,19 @@
+import React from 'react';
+import Burger from '../../Burger/Burger';
+import Button from '../../UI/Button/Button';
+import Styles from './CheckoutSummary.css';
+
+const CheckoutSummary = (props) => {
+  return (
+    <div className={Styles.CheckoutSummary}>
+      <h1>He hope it tastes well ! </h1>
+      <div style={{ width: '100%', height: '300px', margin: 'auto' }}>
+        <Burger ingredients={props.ingredients}/>
+      </div>
+      <Button btnType="Danger" clicked={props.onCheckoutCanceled}> CANCEL </Button>
+      <Button btnType="Success" clicked={props.onCheckoutContinued}> CONTINUE </Button>
+    </div>
+  )
+}
+
+export default CheckoutSummary;
