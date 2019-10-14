@@ -26,7 +26,19 @@
   background-color: #ccc;
 }
 
+.Valid {
+  border: 1px solid green;
+  background-color: lightgreen;
+}
+
 .Invalid {
   border: 1px solid red;
   background-color: salmon;
+}
+
+.InvalidMessage {
+  color: red;
+  padding: 5px;
+  font-size: 12px;
+  text-align: start;
 }

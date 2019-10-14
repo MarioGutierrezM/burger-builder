@@ -3,11 +3,14 @@ import styles from './Input.css';
 
 const Input = (props) => {
   const { label, elementType, value } = props;
-  const { InputElement, Input, Label, Invalid } = styles;
+  const { InputElement, Input, Label, Invalid, Valid, InvalidMessage } = styles;
   let inputElement = null;
+  let inputError = null;
   const inputClasses = [InputElement];
-  if (props.invalid && props.shouldValidate && props.touch) {
-    inputClasses.push(Invalid)
+  if (props.shouldValidate && props.touch) {
+    const inputStyle = (props.invalid) ? Invalid : Valid;
+    inputClasses.push(inputStyle);
+    inputError =  (props.invalid) ? <div className={InvalidMessage}>Please enter a valid value! </div> : null;
   }
 
   switch (elementType) {
@@ -43,6 +46,7 @@ const Input = (props) => {
     <div className={Input}>
       <label className={Label}>{label}</label>
       {inputElement}
+      {inputError}
     </div>
   );
 }
